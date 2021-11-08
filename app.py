@@ -28,7 +28,7 @@ def prediction():
     if prediction < 0:
         prediction = 0
     
-    if prediction < 5:
+    if prediction > 5:
         prediction = 5
     
     prediction = str(np.round(prediction,1)) + " / 5"
