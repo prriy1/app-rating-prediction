@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>App Rating Prediction</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	.btn{
+		background: linear-gradient(to bottom right, #28015c, #33ccff);
+		color: white;
+	}
+	.fform{
+		background-color: #eee;
+		padding: 50px;
+		margin-top: 70px;
+
+	}
+	.heading{
+		background-color: #28015c;
+		padding: 10px;
+		color: white;
+		text-align: center;
+	}
+	.top {
+		position: relative;
+		margin-top:120px;
+	}
+	body {
+		background: url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80');
+		background-size: cover;
+	}
+	
+</style>
+</head>
+<body style="background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed;">
+	<div class="col-lg-12">
+		<div class="container">
+			<div class="col-lg-5 col-lg-offset-7 top">
+				<div class="col-lg-12 heading">
+					<h3><b>App Rating Prediction</b></h3>
+				</div>
+				<form class="form fform" action="http://127.0.0.1:5000/prediction" method="post">
+
+					<div class="form-group">
+						<select class="form-control" id="category" name="category">
+							<option value=''>Choose App Category</option>
+							<option value=0>Art & Design</option>
+							<option value=1>Auto & Vehicles</option>
+							<option value=2>Beauty</option>
+							<option value=3>Books & Reference</option>
+							<option value=4>Business</option>
+							<option value=5>Comics</option>
+							<option value=6>Communication</option>
+							<option value=7>Dating</option>
+							<option value=8>Education</option>
+							<option value=9>Entertainment</option>
+							<option value=10>Events</option>
+							<option value=11>Family</option>
+							<option value=12>Finance</option>
+							<option value=13>Food & Drink</option>
+							<option value=14>Games</option>
+							<option value=15>Health & Fitness</option>
+							<option value=16>Housing</option>
+							<option value=17>Libraries & Demo</option>
+							<option value=18>Lifestyle</option>
+							<option value=19>Maps & Navigation</option>
+							<option value=20>Medical</option>
+							<option value=21>News & Magazines</option>
+							<option value=22>Parenting</option>
+							<option value=23>Personalization</option>
+							<option value=24>Photography</option>
+							<option value=25>Productivity</option>
+							<option value=26>Shopping</option>
+							<option value=27>Social</option>
+							<option value=28>Sports</option>
+							<option value=29>Tools</option>
+							<option value=30>Travel & Local</option>
+							<option value=31>Video Players</option>
+							<option value=32>Weather</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="reviews" placeholder="Enter number of reviews" class="form-control" step=0.001>
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="size" placeholder="Enter size of app in kb" class="form-control" step=0.000001>
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="installs" placeholder="Enter number of installs" class="form-control" step=0.000001>
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="price" placeholder="Enter price of app" class="form-control" step=0.0001>
+					</div>
+
+					<div class="form-group">
+						<b>Rating:</b>
+						<input type="radio" name="rating" value=0> Everyone &nbsp;
+						<input type="radio" name="rating" value=1> Teen &nbsp;
+						<input type="radio" name="rating" value=2> Mature &nbsp;
+						<input type="radio" name="rating" value=3> Unrated
+					</div>
+
+					<div class="form-group">
+						<input type="submit" name="submit" value="Submit" class="btn btn-md">
+					</div>
+
+					<div class="form-group">
+						<b> Predicted Rating: {{ output }} </b>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
